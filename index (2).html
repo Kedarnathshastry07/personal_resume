@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kedarnath Shastry P B M · Cloud &amp; DevOps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f6;--surface:#fff;--ink:#14213d;--mute:#4b5a73;--line:#cfd8e3;--blue:#2457d6;--ok:#13805a;--amber:#b86e00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--surface:#16213a;--ink:#e8eef8;--mute:#9db0cc;--line:#2a3857;--blue:#7aa2ff;--ok:#4cd9a0;--amber:#ffb84d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1626;--surface:#16213a;--ink:#e8eef8;--mute:#9db0cc;--line:#2a3857;--blue:#7aa2ff;--ok:#4cd9a0;--amber:#ffb84d;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;line-height:1.1;margin:0}
+a{color:var(--blue)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+nav{display:flex;gap:20px;flex-wrap:wrap;padding:20px 0;font-size:15px}
+nav a{color:var(--mute);text-decoration:none}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 56px}
+.hero h1{font-size:clamp(40px,8vw,84px);font-weight:800;letter-spacing:-.025em}
+.hero p.lead{max-width:60ch;color:var(--mute);font-size:19px;margin:22px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:500;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.pipe{margin-top:48px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:22px}
+.pipe-h{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin-bottom:16px}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:0}
+.stages li{position:relative;padding:12px 8px 0;text-align:center;font-size:14px;font-weight:500}
+.stages li::before{content:"";display:block;width:22px;height:22px;border-radius:50%;margin:0 auto 10px;border:2px solid var(--line);background:var(--surface);position:relative;z-index:1}
+.stages li::after{content:"";position:absolute;top:22px;left:50%;width:100%;height:2px;background:var(--line)}
+.stages li:last-child::after{display:none}
+.stages li small{display:block;color:var(--mute);font-weight:400;font-size:12.5px;margin-top:2px}
+.stages li.run::before{border-color:var(--ok);background:var(--ok);transition:background .3s}
+.stages li.run::after{background:var(--ok)}
+.stages li.pending::before{border-color:var(--amber)}
+section{padding:56px 0;border-top:1.5px solid var(--line)}
+h2{font-size:clamp(28px,4.5vw,40px);font-weight:800;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:20px}
+.card h3{font-size:20px;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{font-size:14px;padding:4px 10px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.role{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.role span{color:var(--mute);font-size:15px}
+ul.tasks{padding-left:20px;margin:16px 0 0;max-width:75ch}
+ul.tasks li{margin-bottom:10px}
+.tag{display:inline-block;font-size:13px;padding:2px 9px;border-radius:5px;color:var(--ok);border:1px solid var(--ok);margin-bottom:12px}
+.card p{margin:0 0 10px;color:var(--mute)}
+.contact a{display:block;font-size:clamp(20px,3.4vw,30px);font-family:"Bricolage Grotesque",sans-serif;font-weight:600;margin-bottom:8px;overflow-wrap:anywhere}
+.stages li button{all:unset;display:block;width:100%;cursor:pointer;font:inherit;font-weight:500;border-radius:6px;padding:2px 0 6px}
+.stages li button:hover{color:var(--blue)}
+.stages li.sel button{color:var(--blue);text-decoration:underline;text-underline-offset:5px}
+.stages li.sel::before{box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 28%,transparent)}
+#detail{margin-top:18px;padding:14px 16px;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:15.5px;min-height:3.4em}
+.now{margin:22px 0 0;color:var(--mute)}
+.now strong{color:var(--ink);display:inline-block;min-width:11ch}
+#theme{margin-left:auto;cursor:pointer;background:none;border:1.5px solid var(--line);border-radius:999px;color:var(--ink);font:inherit;font-size:14px;padding:3px 14px}
+footer{padding:28px 0 40px;color:var(--mute);font-size:14px;border-top:1.5px solid var(--line)}
+@media (max-width:640px){.stages{grid-template-columns:1fr;gap:6px}.stages li{display:flex;gap:12px;text-align:left;align-items:center;padding:6px 0}.stages li::before{margin:0;flex:none}.stages li::after{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.stages li::before{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Sections"><a href="#pipeline">Skills</a><a href="#cloud">AWS</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a><button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button></nav>
+
+<header class="hero">
+<h1>Kedarnath Shastry P B M</h1>
+<p class="lead">Cloud and DevOps developer. I deploy applications on AWS, package them in Docker, run them on Kubernetes and automate the path to production with CI/CD and Terraform.</p>
+<p class="now">Hands-on with <strong id="rot">AWS</strong></p>
+<div class="cta"><a class="btn main" href="mailto:kedarnathshastryp@gmail.com">Email me</a><a class="btn" href="tel:+919380761911">Call +91 93807 61911</a></div>
+
+<div class="pipe" id="pipeline" aria-label="Delivery pipeline of my skills">
+<div class="pipe-h"><span>pipeline: kedarnath-skills</span><span id="status">running…</span></div>
+<ol class="stages" id="stages">
+<li><button type="button" data-i="0">Code<small>Git · GitHub · GitLab</small></button></li>
+<li><button type="button" data-i="1">Build<small>Jenkins · Docker</small></button></li>
+<li><button type="button" data-i="2">Provision<small>Terraform · Ansible</small></button></li>
+<li><button type="button" data-i="3">Deploy<small>AWS · Kubernetes</small></button></li>
+<li><button type="button" data-i="4">Observe<small>Prometheus · Grafana</small></button></li>
+</ol>
+<div id="detail" aria-live="polite">Select a stage to see what I have done there.</div>
+</div>
+</header>
+
+<section aria-labelledby="skills-h">
+<h2 id="skills-h">Technical skills</h2>
+<div class="grid">
+<div class="card"><h3>AWS cloud</h3><ul class="chips"><li>EC2</li><li>IAM</li><li>VPC</li><li>S3</li><li>Lambda</li><li>API Gateway</li><li>DynamoDB</li><li>Auto Scaling</li><li>Load Balancer</li><li>CloudWatch</li><li>SNS</li></ul></div>
+<div class="card"><h3>Containers and automation</h3><ul class="chips"><li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Terraform</li><li>Ansible</li><li>Jenkins</li></ul></div>
+<div class="card"><h3>Linux and networking</h3><ul class="chips"><li>Ubuntu</li><li>Amazon Linux</li><li>Shell scripting</li><li>TCP/IP</li><li>DNS</li><li>DHCP</li><li>HTTP/HTTPS</li><li>SSH</li><li>CIDR and subnets</li></ul></div>
+<div class="card"><h3>Languages and data</h3><ul class="chips"><li>Python</li><li>HTML</li><li>CSS</li><li>SQL</li><li>MySQL</li><li>Power BI</li></ul></div>
+</div>
+</section>
+
+<section id="cloud" aria-labelledby="cloud-h">
+<h2 id="cloud-h">AWS services I work with</h2>
+<figure style="margin:0">
+<div style="overflow-x:auto">
+<svg viewBox="0 0 860 280" style="min-width:680px;width:100%;height:auto" role="img" aria-label="Diagram: users reach EC2 instances through a load balancer, or reach Lambda through API Gateway; both store data in S3 and DynamoDB; CloudWatch and SNS monitor and alert.">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" style="fill:var(--mute)"/></marker></defs>
+<g style="stroke:var(--mute);stroke-width:2;fill:none" marker-end="url(#ah)">
+<path d="M150 72H200" marker-end="url(#ah)"/><path d="M350 72H400" marker-end="url(#ah)"/><path d="M600 72H660" marker-end="url(#ah)"/>
+<path d="M150 72V150H200" marker-end="url(#ah)"/><path d="M350 150H400" marker-end="url(#ah)"/><path d="M600 150H660" marker-end="url(#ah)"/>
+</g>
+<g style="fill:var(--surface);stroke:var(--line);stroke-width:2">
+<rect x="20" y="44" width="130" height="56" rx="10"/><rect x="200" y="44" width="150" height="56" rx="10"/><rect x="400" y="44" width="200" height="56" rx="10"/><rect x="660" y="44" width="180" height="56" rx="10"/>
+<rect x="200" y="122" width="150" height="56" rx="10"/><rect x="400" y="122" width="200" height="56" rx="10"/><rect x="660" y="122" width="180" height="56" rx="10"/>
+<rect x="200" y="212" width="640" height="48" rx="10" style="stroke:var(--ok)"/>
+</g>
+<g style="fill:var(--ink);font:500 16px 'IBM Plex Sans',sans-serif;text-anchor:middle">
+<text x="85" y="78">Users</text><text x="275" y="78">Load Balancer</text><text x="500" y="78">EC2 + Auto Scaling</text><text x="750" y="78">S3</text>
+<text x="275" y="156">API Gateway</text><text x="500" y="156">Lambda</text><text x="750" y="156">DynamoDB</text>
+<text x="520" y="242">CloudWatch metrics and logs · SNS alerts · IAM and VPC around it all</text>
+</g>
+</svg>
+</div>
+<figcaption style="color:var(--mute);margin-top:12px;max-width:70ch">How the AWS services from my training fit together: servers behind a load balancer, serverless APIs, storage, and monitoring.</figcaption>
+</figure>
+</section>
+
+<section id="experience" aria-labelledby="exp-h">
+<h2 id="exp-h">Experience</h2>
+<div class="role"><h3>Cloud &amp; DevOps Intern</h3><span>Cravita Technologies India Pvt. Ltd. · Present</span></div>
+<ul class="tasks">
+<li>Deployed and managed cloud projects on AWS using EC2, IAM, VPC, S3, Lambda, API Gateway, DynamoDB, Auto Scaling, Application Load Balancer, CloudWatch and SNS.</li>
+<li>Built, managed and deployed containerized applications with Docker, working with images, containers, volumes and Docker Compose.</li>
+<li>Worked with Kubernetes Pods, Deployments and Services to deploy and manage containerized workloads.</li>
+<li>Administered Ubuntu and Amazon Linux systems: users and groups, file permissions, packages, processes and shell scripting.</li>
+<li>Solved networking problems in hands-on labs covering the OSI model, TCP/IP, CIDR, subnetting, DNS, DHCP, HTTP/HTTPS and SSH.</li>
+<li>Used Git and GitHub for branching, merging and collaborative development.</li>
+</ul>
+</section>
+
+<section id="projects" aria-labelledby="proj-h">
+<h2 id="proj-h">Projects</h2>
+<div class="grid">
+<article class="card"><span class="tag">Data and analytics</span><h3>Retail sales forecasting dashboard</h3>
+<p>An interactive Power BI dashboard that analyzes retail sales and forecasts inventory demand.</p>
+<p>I cleaned and transformed the data with Excel and SQL, then surfaced sales trends, seasonal patterns and top-selling products to support business decisions.</p>
+<ul class="chips"><li>Power BI</li><li>SQL</li><li>Excel</li></ul></article>
+<article class="card"><span class="tag">Sustainability</span><h3>Smart resource conservation for home appliances</h3>
+<p>A data-driven solution that monitors and optimizes energy and water use in refrigerators, air conditioners, washing machines and desert air coolers.</p>
+<p>I analyzed usage data to find wastage patterns and recommend efficiency improvements.</p>
+<ul class="chips"><li>Data analysis</li><li>Python</li></ul></article>
+</div>
+</section>
+
+<section id="education" aria-labelledby="edu-h">
+<h2 id="edu-h">Education</h2>
+<div class="grid">
+<div class="card"><h3>Bachelor of Computer Science</h3><p>RYM College of Engineering<br>Dec 2022 – June 2026</p></div>
+<div class="card"><h3>Pre-University Course (PUC)</h3><p>Sri Vidyaniketan PU College<br>July 2021 – July 2022</p></div>
+</div>
+</section>
+
+<section id="contact" class="contact" aria-labelledby="contact-h">
+<h2 id="contact-h">Let’s talk</h2>
+<p style="max-width:55ch;color:var(--mute)">I’m looking for an entry-level Cloud or DevOps role where I can keep building and learning on a real team.</p>
+<a href="mailto:kedarnathshastryp@gmail.com">kedarnathshastryp@gmail.com</a>
+<a href="tel:+919380761911">+91 93807 61911</a>
+</section>
+</div>
+<footer><div class="wrap">© 2026 Kedarnath Shastry P B M</div></footer>
+
+<script>
+(function(){
+var items=[].slice.call(document.querySelectorAll('#stages li')),st=document.getElementById('status');
+function done(){items.forEach(function(i){i.classList.add('run')});st.textContent='all stages passed';st.style.color='var(--ok)'}
+var info=['Version control with Git and GitHub: branching, merging and collaborative workflows. Also familiar with GitLab.','Building and running containerized apps with Docker: images, containers, volumes and Docker Compose. Working knowledge of Jenkins for CI/CD.','Infrastructure as code with Terraform and configuration automation with Ansible.','Deploying on AWS (EC2, VPC, S3, Lambda, API Gateway, DynamoDB, Auto Scaling, Load Balancer) and running workloads on Kubernetes with Pods, Deployments and Services.','Monitoring with CloudWatch, Prometheus and Grafana, with SNS for notifications.'];
+var det=document.getElementById('detail');
+items.forEach(function(li,i){li.querySelector('button').addEventListener('click',function(){items.forEach(function(x){x.classList.remove('sel')});li.classList.add('sel');det.textContent=info[i]})});
+var rot=document.getElementById('rot'),words=['AWS','Docker','Kubernetes','Terraform','Linux','CI/CD'],w=0;
+var calm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!calm){setInterval(function(){w=(w+1)%words.length;rot.textContent=words[w]},1800)}
+var root=document.documentElement;
+document.getElementById('theme').addEventListener('click',function(){var dark=root.getAttribute('data-theme')?root.getAttribute('data-theme')==='dark':window.matchMedia('(prefers-color-scheme:dark)').matches;root.setAttribute('data-theme',dark?'light':'dark')});
+if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){done();return}
+var n=0;(function step(){if(n<items.length){items[n].classList.add('run');n++;setTimeout(step,450)}else{done()}})();
+})();
+</script>
+</body>
+</html>
